@@ -29,7 +29,7 @@ function Home(props: Props) {
       </Helmet>
       <Grid>
         <Hero id="signin">
-          <h1>Your team’s knowledge base</h1>
+          <h1>Mike’s knowledge base</h1>
           <HeroText>
             Team wiki, documentation, meeting notes, playbooks, onboarding, work
             logs, brainstorming, & more…

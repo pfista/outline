@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 require('./init');
 
 if (process.env.NODE_ENV === 'production') {

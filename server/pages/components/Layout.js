@@ -10,7 +10,7 @@ import prefetchTags from '../../utils/prefetchTags';
 
 export const title = 'Outline';
 export const description =
-  'Your team’s knowledge base - Team wiki, documentation, playbooks, onboarding & more…';
+  'Mike’s knowledge base - Team wiki, documentation, playbooks, onboarding & more…';
 export const screenshotUrl = `${process.env.URL}/screenshot.png`;
 
 type Props = {

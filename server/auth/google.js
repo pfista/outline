@@ -39,10 +39,12 @@ router.get('google.callback', auth({ required: false }), async ctx => {
     url: 'https://www.googleapis.com/oauth2/v1/userinfo',
   });
 
-  if (!profile.data.hd) {
-    ctx.redirect('/?notice=google-hd');
+  // Hack to allow Gmail (non GSuite) accounts
+  if (profile.data.email !== 'pfista@gmail.com') {
+    ctx.redirect('/?notice=outsider');
     return;
   }
+  profile.data.hd = "pfista.io"
 
   // allow all domains by default if the env is not set
   const allowedDomains = allowedDomainsEnv && allowedDomainsEnv.split(',');
@@ -53,7 +55,7 @@ router.get('google.callback', auth({ required: false }), async ctx => {
 
   const googleId = profile.data.hd;
   const hostname = profile.data.hd.split('.')[0];
-  const teamName = capitalize(hostname);
+  const teamName = hostname;
 
   // attempt to get logo from Clearbit API. If one doesn't exist then
   // fall back to using tiley to generate a placeholder logo

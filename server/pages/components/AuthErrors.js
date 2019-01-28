@@ -9,6 +9,11 @@ type Props = {
 export default function AuthErrors({ notice }: Props) {
   return (
     <React.Fragment>
+      {notice === 'outsider' && (
+        <Notice>
+	      Sorry, only Michael's friends can sign up here. Let him know if you want an account!
+        </Notice>
+      )}
       {notice === 'google-hd' && (
         <Notice>
           Sorry, Google sign in cannot be used with a personal email. Please try

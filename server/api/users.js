@@ -40,7 +40,6 @@ router.post('users.update', auth(), async ctx => {
   const { user } = ctx.state;
   const { name, avatarUrl } = ctx.body;
   const endpoint = publicS3Endpoint();
-
   if (name) user.name = name;
   if (avatarUrl && avatarUrl.startsWith(`${endpoint}/uploads/${user.id}`)) {
     user.avatarUrl = avatarUrl;
